@@ -1,0 +1,36 @@
+/*============================
+GENERAL LAYOUT AND STYLES====
+==============================*/
+
+/*============================
+SPECIFIC LAYOUT AND STYLES====
+==============================*/
+
+/* 2- WORK FLEXBOX */
+.Work__flexbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.Work__company-name {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.Work__job-title {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.Work__tenure,
+.Work__location {
+  align-self: flex-end;
+}
+
+.Work__location {
+  margin-bottom: 0.5em;
+}
+
+.Work__responsibilities {
+  margin: 0em 0em 3em;
+}
