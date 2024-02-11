@@ -4,11 +4,13 @@ import AddRemoveBtn from "./AddRemoveBtn.jsx";
 import SubmitButton from "./SubmitButton.jsx";
 
 function Builder() {
+  /* State to update color input background-color */
   const [color, setColor] = useState({
     rightSideCvColor: "",
     leftSideCvColor: "",
   });
 
+  /* Function to update color input background-color */
   function updateColor(event) {
     const { id, value } = event.target;
 

@@ -41,7 +41,7 @@ SPECIFIC LAYOUT AND STYLES==
   padding: 4em;
   display: flex;
   flex-direction: column;
-  background-color: var(--builder-background-color);
+  background-color: var(--builder-section-background-color);
 }
 
 /* 2- PERSONAL-INFO-FORM */

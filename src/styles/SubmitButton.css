@@ -21,6 +21,10 @@ SPECIFIC LAYOUT AND STYLES=
   scale: 1.03;
 }
 
+.SubmitButton:focus {
+  border: 2px solid black;
+}
+
 .SubmitButton:active {
   background-color: var(--input-active-background-color);
 }

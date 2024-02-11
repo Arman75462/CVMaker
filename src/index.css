@@ -39,8 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.3;
-  text-wrap: balance; /* Distribute text evenly in headings */
+  line-height: 1.1;
 }
 
 /* Improve paragraph readability with controlled text wrapping and width */
@@ -100,8 +99,11 @@ GENERAL LAYOUT AND STYLES==
 ==============================*/
 :root {
   --submit-btn-background-color: rgb(116, 255, 255);
+  --cv-section-background-color: #eeeeee;
   --cv-background-color: #eeeeee;
-  --builder-background-color: white;
+  --cv-right-side-background-color: rgb(155, 255, 155);
+  --cv-left-side-background-color: white;
+  --builder-section-background-color: white;
   --input-background-color: #eeeeee;
   --input-active-background-color: rgb(155, 255, 155);
   --input-border-color: #bdbdbd;

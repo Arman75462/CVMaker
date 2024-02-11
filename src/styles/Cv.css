@@ -5,8 +5,91 @@ GENERAL LAYOUT AND STYLES==
 /*============================
 SPECIFIC LAYOUT AND STYLES=
 ==============================*/
-/* 1- CV */
-.Cv {
+/* 1- DISPLAY */
+.display {
   width: 60%;
-  background-color: var(--cv-background-color);
+  background-color: var(--cv-section-background-color);
+  padding: 2em 8em;
+}
+
+/* 2- CV */
+.Cv {
+  box-shadow: 5px 5px 20px 1px black;
+  display: flex;
+  word-wrap: break-word;
+}
+
+/* 3- SIDEBAR */
+.sidebar {
+  width: 30%;
+  padding: 2em 1em;
+  background-color: var(--cv-left-side-background-color);
+}
+
+.sidebar__section {
+  margin-bottom: 3em;
+}
+
+.sidebar__section-title {
+  margin-bottom: 0.7em;
+  font-weight: 500;
+}
+
+/* 4- SIDEBAR PERSONAL INFO */
+
+.personal-info-section__profile-picture {
+  background-size: cover;
+  max-height: 200px;
+  margin-bottom: 0.5em;
+}
+
+.personal-info-section__full-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+.personal-info-section__job-title {
+  font-size: 0.8rem;
+}
+
+/* 4- SIDEBAR CONTACT DETAILS SECTION */
+.sidebar__contact-details-section p {
+  font-size: 0.8rem;
+}
+
+.sidebar__contact-details-section h3 {
+  font-size: 0.9rem;
+  margin-top: 0.5em;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* 4- SIDEBAR SKILLS SECTION */
+.sidebar__skills-section {
+  margin-bottom: 1em;
+}
+
+.skills-section__skills-list-item::before {
+  content: "✓ ";
+}
+
+/* 3- MAIN-CONTENT */
+.main-content {
+  width: 70%;
+  padding: 2em;
+  background-color: var(--cv-right-side-background-color);
+}
+
+.main-content p {
+  font-size: 0.85rem;
+}
+
+.main-content__section {
+  margin-bottom: 2em;
+}
+
+.main-content__section-title {
+  margin-bottom: 0.5em;
+  font-weight: 500;
 }
