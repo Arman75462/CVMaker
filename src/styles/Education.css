@@ -1,0 +1,25 @@
+/*============================
+GENERAL LAYOUT AND STYLES====
+==============================*/
+
+/*============================
+SPECIFIC LAYOUT AND STYLES====
+==============================*/
+
+/* 1- EDUCATION */
+.Education {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.Education__school-name {
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.Education__duration,
+.Education__location {
+  align-self: flex-end;
+}
