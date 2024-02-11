@@ -5,8 +5,9 @@ GENERAL LAYOUT AND STYLES==
 /*============================
 SPECIFIC LAYOUT AND STYLES=
 ==============================*/
-/* 1- CV */
-.Cv {
-  width: 60%;
-  background-color: var(--cv-background-color);
+/* 1- ADD REMOVE BTN */
+.AddRemoveBtn {
+  position: absolute;
+  right: 1em;
+  font-size: 1.2rem;
 }

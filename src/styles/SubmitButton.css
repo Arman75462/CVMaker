@@ -1,0 +1,26 @@
+/*============================
+GENERAL LAYOUT AND STYLES==
+==============================*/
+
+/*============================
+SPECIFIC LAYOUT AND STYLES=
+==============================*/
+/* 1- SUBMIT BUTTON */
+.SubmitButton {
+  padding: 1em 2em;
+  border-radius: 15px;
+  background-color: var(--submit-btn-background-color);
+  align-self: flex-start;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.33);
+  transition: box-shadow 0.3s ease, scale 0.3s ease;
+  font-weight: 500;
+}
+
+.SubmitButton:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.45);
+  scale: 1.03;
+}
+
+.SubmitButton:active {
+  background-color: var(--input-active-background-color);
+}

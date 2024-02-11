@@ -1,7 +1,111 @@
 /*============================
 GENERAL LAYOUT AND STYLES==
 ==============================*/
+/*  1- BUILDER */
+.form__title {
+  border-bottom: 2px solid black;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6em;
+}
+
+.form__label {
+  margin-bottom: 0.1em;
+  cursor: pointer;
+}
+
+.form__input,
+.form__textarea {
+  background-color: var(--input-background-color);
+  border-radius: 10px;
+  padding: 1em;
+  border: 1px solid var(--input-border-color);
+  margin-bottom: 1.5em;
+}
+
+.form__title {
+  font-weight: 600;
+}
 
 /*============================
-SPECIFIC LAYOUT AND STYLES=
+SPECIFIC LAYOUT AND STYLES==
 ==============================*/
+/* 1- BUILDER */
+.Builder {
+  width: 40%;
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--builder-background-color);
+}
+
+/* 2- PERSONAL-INFO-FORM */
+.personal-info-form__input--upload-image,
+.personal-info-form__input--upload-image::-webkit-file-upload-button {
+  cursor: pointer;
+}
+
+/* 2- SKILLS FORM */
+.skills-form .SubmitButton {
+  margin-top: 1.5em;
+}
+
+.skills-form__flexbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.skills-form__input {
+  flex: 1;
+  margin: 0;
+}
+
+.skills-form__skill-card-section {
+  display: flex;
+}
+
+/* 2- EXPERIENCE-FORM */
+.experience-form__flexbox {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2- EDUCATION-FORM */
+.education-form__flexbox {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2- LANGUAGES-FORM */
+.languages-form .SubmitButton {
+  margin-top: 1.5em;
+}
+
+.languages-form__flexbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.languages-form__input {
+  flex: 1;
+  margin: 0;
+}
+
+.languages-form__language-card-section {
+  display: flex;
+}
+
+/* 2- CV COLOR */
+.cv-colors-form__input {
+  font-size: 1.5rem;
+  background-color: black;
+  cursor: pointer;
+  border: 2px solid var(--input-border-color);
+}
