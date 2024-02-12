@@ -3,7 +3,26 @@ import "../styles/Builder.css";
 import AddRemoveBtn from "./AddRemoveBtn.jsx";
 import SubmitButton from "./SubmitButton.jsx";
 
-function Builder() {
+function Builder({ onCvSubmit }) {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    professionalTitle: "",
+    personalDescription: "",
+    // Add other fields as necessary
+  });
+
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    onCvSubmit(formData); // This function is passed from the parent component
+  };
+
   /* State to update color input background-color */
   const [color, setColor] = useState({
     rightSideCvColor: "",
@@ -42,6 +61,8 @@ function Builder() {
           id="fullName"
           placeholder="e.g. Jasmine Taylor"
           autoFocus
+          value={formData.fullName}
+          onChange={handleChange}
         />
 
         {/* PROFESSIONAL TITLE INPUT */}
@@ -86,8 +107,6 @@ function Builder() {
           rows="8"
           placeholder="e.g. Seasoned professional with a decade of experience managing cross-functional teams..."
         ></textarea>
-
-        <SubmitButton />
       </form>
 
       {/* 2- CONTACT-FORM */}
@@ -143,8 +162,6 @@ function Builder() {
           id="linkedIn"
           placeholder="e.g. linkedin.com/in/jasminetaylor"
         />
-
-        <SubmitButton />
       </form>
 
       {/* 2- SKILLS FORM */}
@@ -164,8 +181,6 @@ function Builder() {
           <AddRemoveBtn text="+" />
         </div>
         <div className="skills-form__skill-card-section"></div>
-
-        <SubmitButton />
       </form>
 
       {/* 2- EXPERIENCE-FORM */}
@@ -260,8 +275,6 @@ function Builder() {
         ></textarea>
 
         <div className="experience-form__experience-card-section"></div>
-
-        <SubmitButton />
       </form>
 
       {/* 2- EDUCATION-FORM */}
@@ -341,8 +354,6 @@ function Builder() {
           />
         </div>
         <div className="education-form__education-card-section"></div>
-
-        <SubmitButton />
       </form>
 
       {/* 2- LANGUAGES-FORM */}
@@ -363,8 +374,6 @@ function Builder() {
           <AddRemoveBtn text="+" />
         </div>
         <div className="languages-form__language-card-section"></div>
-
-        <SubmitButton />
       </form>
 
       {/* 2- CV COLOR */}
@@ -401,7 +410,7 @@ function Builder() {
           onChange={updateColor}
         />
 
-        <SubmitButton />
+        <SubmitButton onClick={handleSubmit} />
       </form>
     </div>
   );

@@ -4,7 +4,7 @@ import profilePicture from "../assets/profile-pic.jpg";
 import Work from "./Work.jsx";
 import Education from "./Education.jsx";
 
-function Cv() {
+function Cv({ data }) {
   return (
     /* 1- DISPLAY*/
     <div className="display">
@@ -19,7 +19,9 @@ function Cv() {
               alt="Description"
               className="personal-info-section__profile-picture"
             />
-            <h1 className="personal-info-section__full-name">Jasmine Taylor</h1>
+            <h1 className="personal-info-section__full-name">
+              {data.fullName}
+            </h1>
             <p className="personal-info-section__job-title">Project manager</p>
           </article>
 
