@@ -23,7 +23,6 @@ SPECIFIC LAYOUT AND STYLES=
 .sidebar {
   width: 30%;
   padding: 2em 1em;
-  background-color: var(--cv-left-side-background-color);
 }
 
 .sidebar__section {
@@ -77,7 +76,6 @@ SPECIFIC LAYOUT AND STYLES=
 .main-content {
   width: 70%;
   padding: 2em;
-  background-color: var(--cv-right-side-background-color);
 }
 
 .main-content p {

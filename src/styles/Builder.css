@@ -105,7 +105,6 @@ SPECIFIC LAYOUT AND STYLES==
 /* 2- CV COLOR */
 .cv-colors-form__input {
   font-size: 1.5rem;
-  background-color: black;
   cursor: pointer;
   border: 2px solid var(--input-border-color);
 }

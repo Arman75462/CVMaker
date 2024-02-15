@@ -3,41 +3,143 @@ import "../styles/Builder.css";
 import AddRemoveBtn from "./AddRemoveBtn.jsx";
 import SubmitButton from "./SubmitButton.jsx";
 
-function Builder({ onCvSubmit }) {
-  const [formData, setFormData] = useState({
+function Builder({
+  onCvPersonalInfoSubmit,
+  onCvContactInfoSubmit,
+  onCvAdditionalSkillsSubmit,
+  onCvWorkExperienceSubmit,
+  onCvEducationSubmit,
+  onCvLanguagesSubmit,
+  onCvColorsSubmit,
+}) {
+  // States for each cv-data section
+  const [cvPersonalInfo, setCvPersonalInfo] = useState({
     fullName: "",
     professionalTitle: "",
+    imageUpload: "",
     personalDescription: "",
-    // Add other fields as necessary
   });
 
-  const handleChange = (event) => {
+  const [cvContactInfo, setCvContactInfo] = useState({
+    address: "",
+    emailAddress: "",
+    phoneNumber: "",
+    linkedIn: "",
+  });
+
+  const [cvAdditionalSkills, setCvAdditionalSkills] = useState({
+    skill: "",
+  });
+
+  const [cvWorkExperience, setCvWorkExperience] = useState({
+    companyName: "",
+    companyLocation: "",
+    jobTitle: "",
+    experienceStartDate: "",
+    experienceEndDate: "",
+    responsibilities: "",
+  });
+
+  const [cvEducation, setCvEducation] = useState({
+    schoolName: "",
+    schoolLocation: "",
+    degreeTitle: "",
+    educationStartDate: "",
+    educationEndDate: "",
+  });
+
+  const [cvLanguages, setCvLanguages] = useState({
+    language: "",
+  });
+
+  const [cvColors, setCvColors] = useState({
+    rightSideCvColor: "",
+    leftSideCvColor: "",
+  });
+
+  const handleChangePersonalInfo = (event) => {
     const { id, value } = event.target;
-    setFormData((prevState) => ({
+    setCvPersonalInfo((prevState) => ({
       ...prevState,
       [id]: value,
     }));
   };
 
-  const handleSubmit = () => {
-    onCvSubmit(formData); // This function is passed from the parent component
-  };
-
-  /* State to update color input background-color */
-  const [color, setColor] = useState({
-    rightSideCvColor: "",
-    leftSideCvColor: "",
-  });
-
-  /* Function to update color input background-color */
-  function updateColor(event) {
+  const handleChangeContactInfo = (event) => {
     const { id, value } = event.target;
-
-    setColor((prevColors) => ({
-      ...prevColors,
+    setCvContactInfo((prevState) => ({
+      ...prevState,
       [id]: value,
     }));
-  }
+  };
+
+  /* const handleChangeAdditionalSkills = (event) => {
+    const { id, value } = event.target;
+    setCvAdditionalSkills((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  }; */
+
+  const handleChangeWorkExperience = (event) => {
+    const { id, value } = event.target;
+    setCvWorkExperience((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
+
+  /* const handleChangeEducation = (event) => {
+    const { id, value } = event.target;
+    setCvEducation((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  }; */
+
+  /* const handleChangeLanguages = (event) => {
+    const { id, value } = event.target;
+    setCvLanguages((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  }; */
+
+  const handleChangeColors = (event) => {
+    const { id, value } = event.target;
+    setCvColors((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
+
+  const handlePersonalInfoSubmit = () => {
+    onCvPersonalInfoSubmit(cvPersonalInfo); // This function is passed from the parent component
+  };
+
+  const handleContactInfoSubmit = () => {
+    onCvContactInfoSubmit(cvContactInfo); // This function is passed from the parent component
+  };
+
+  const handleAdditionalSkillsSubmit = () => {
+    onCvAdditionalSkillsSubmit(cvAdditionalSkills); // This function is passed from the parent component
+  };
+
+  const handleWorkExperienceSubmit = () => {
+    onCvWorkExperienceSubmit(cvWorkExperience); // This function is passed from the parent component
+  };
+
+  const handleEducationSubmit = () => {
+    onCvEducationSubmit(cvEducation); // This function is passed from the parent component
+  };
+
+  const handleLanguagesSubmit = () => {
+    onCvLanguagesSubmit(cvLanguages); // This function is passed from the parent component
+  };
+
+  const handleColorsSubmit = () => {
+    onCvColorsSubmit(cvColors); // This function is passed from the parent component
+  };
 
   return (
     /*  1- BUILDER */
@@ -61,8 +163,8 @@ function Builder({ onCvSubmit }) {
           id="fullName"
           placeholder="e.g. Jasmine Taylor"
           autoFocus
-          value={formData.fullName}
-          onChange={handleChange}
+          value={cvPersonalInfo.fullName}
+          onChange={handleChangePersonalInfo}
         />
 
         {/* PROFESSIONAL TITLE INPUT */}
@@ -77,6 +179,8 @@ function Builder({ onCvSubmit }) {
           type="text"
           id="professionalTitle"
           placeholder="e.g. Project Manager"
+          value={cvPersonalInfo.professionalTitle}
+          onChange={handleChangePersonalInfo}
         />
 
         {/* Image Upload Input */}
@@ -91,6 +195,8 @@ function Builder({ onCvSubmit }) {
           type="file"
           id="imageUpload"
           accept="image/*" // Optional: Restrict to image files only
+          value={cvPersonalInfo.imageUpload}
+          onChange={handleChangePersonalInfo}
         />
 
         {/* PERSONAL DESCRIPTION TEXTAREA */}
@@ -106,7 +212,11 @@ function Builder({ onCvSubmit }) {
           name="personal-description"
           rows="8"
           placeholder="e.g. Seasoned professional with a decade of experience managing cross-functional teams..."
+          value={cvPersonalInfo.personalDescription}
+          onChange={handleChangePersonalInfo}
         ></textarea>
+
+        <SubmitButton onClick={handlePersonalInfoSubmit} />
       </form>
 
       {/* 2- CONTACT-FORM */}
@@ -122,6 +232,8 @@ function Builder({ onCvSubmit }) {
           type="text"
           id="address"
           placeholder="e.g. 4567 Maple Avenue, Springfield"
+          value={cvContactInfo.address}
+          onChange={handleChangeContactInfo}
         />
 
         {/* EMAIL ADDRESS INPUT */}
@@ -136,6 +248,8 @@ function Builder({ onCvSubmit }) {
           type="email"
           id="emailAddress"
           placeholder="e.g. jtaylor@example.com"
+          value={cvContactInfo.emailAddress}
+          onChange={handleChangeContactInfo}
         />
 
         {/* PHONE NUMBER INPUT */}
@@ -150,6 +264,8 @@ function Builder({ onCvSubmit }) {
           type="tel"
           id="phoneNumber"
           placeholder="e.g. (555) 123-4567"
+          value={cvContactInfo.phoneNumber}
+          onChange={handleChangeContactInfo}
         />
 
         {/* LINKEDIN LINK INPUT */}
@@ -161,7 +277,11 @@ function Builder({ onCvSubmit }) {
           type="text"
           id="linkedIn"
           placeholder="e.g. linkedin.com/in/jasminetaylor"
+          value={cvContactInfo.linkedIn}
+          onChange={handleChangeContactInfo}
         />
+
+        <SubmitButton onClick={handleContactInfoSubmit} />
       </form>
 
       {/* 2- SKILLS FORM */}
@@ -181,6 +301,8 @@ function Builder({ onCvSubmit }) {
           <AddRemoveBtn text="+" />
         </div>
         <div className="skills-form__skill-card-section"></div>
+
+        <SubmitButton onClick={handleAdditionalSkillsSubmit} />
       </form>
 
       {/* 2- EXPERIENCE-FORM */}
@@ -199,6 +321,8 @@ function Builder({ onCvSubmit }) {
           type="text"
           id="companyName"
           placeholder="e.g. Global Enterprises Ltd."
+          value={cvWorkExperience.companyName}
+          onChange={handleChangeWorkExperience}
         />
 
         {/* EXPERIENCE COMPANY LOCATION INPUT */}
@@ -213,6 +337,8 @@ function Builder({ onCvSubmit }) {
           type="text"
           id="companyLocation"
           placeholder="e.g. Chicago, IL"
+          value={cvWorkExperience.companyLocation}
+          onChange={handleChangeWorkExperience}
         />
 
         {/* EXPERIENCE TITLE INPUT */}
@@ -227,6 +353,8 @@ function Builder({ onCvSubmit }) {
           type="text"
           id="jobTitle"
           placeholder="e.g. Senior Consultant"
+          value={cvWorkExperience.jobTitle}
+          onChange={handleChangeWorkExperience}
         />
 
         <div className="experience-form__flexbox">
@@ -241,6 +369,8 @@ function Builder({ onCvSubmit }) {
             className="experience-form__input form__input"
             type="month"
             id="experienceStartDate"
+            value={cvWorkExperience.experienceStartDate}
+            onChange={handleChangeWorkExperience}
           />
         </div>
 
@@ -256,6 +386,8 @@ function Builder({ onCvSubmit }) {
             className="experience-form__input form__input"
             type="month"
             id="experienceEndDate"
+            value={cvWorkExperience.experienceEndDate}
+            onChange={handleChangeWorkExperience}
           />
         </div>
 
@@ -272,9 +404,13 @@ function Builder({ onCvSubmit }) {
           name="responsibilities"
           rows="5"
           placeholder="e.g. Orchestrated the strategic planning for key client projects, ensuring timely delivery..."
+          value={cvWorkExperience.responsibilities}
+          onChange={handleChangeWorkExperience}
         ></textarea>
 
         <div className="experience-form__experience-card-section"></div>
+
+        <SubmitButton onClick={handleWorkExperienceSubmit} />
       </form>
 
       {/* 2- EDUCATION-FORM */}
@@ -354,6 +490,8 @@ function Builder({ onCvSubmit }) {
           />
         </div>
         <div className="education-form__education-card-section"></div>
+
+        <SubmitButton onClick={handleEducationSubmit} />
       </form>
 
       {/* 2- LANGUAGES-FORM */}
@@ -374,6 +512,8 @@ function Builder({ onCvSubmit }) {
           <AddRemoveBtn text="+" />
         </div>
         <div className="languages-form__language-card-section"></div>
+
+        <SubmitButton onClick={handleLanguagesSubmit} />
       </form>
 
       {/* 2- CV COLOR */}
@@ -391,8 +531,9 @@ function Builder({ onCvSubmit }) {
           className="cv-colors-form__input  form__input "
           type="color"
           id="rightSideCvColor"
-          style={{ backgroundColor: color.rightSideCvColor }}
-          onChange={updateColor}
+          style={{ backgroundColor: cvColors.rightSideCvColor }}
+          onChange={handleChangeColors}
+          value={cvColors.rightSideCvColor}
         />
 
         {/* LEFT SIDE CV COLOR INPUT */}
@@ -406,11 +547,12 @@ function Builder({ onCvSubmit }) {
           className="cv-colors-form__input form__input "
           type="color"
           id="leftSideCvColor"
-          style={{ backgroundColor: color.leftSideCvColor }}
-          onChange={updateColor}
+          style={{ backgroundColor: cvColors.leftSideCvColor }}
+          onChange={handleChangeColors}
+          value={cvColors.leftSideCvColor}
         />
 
-        <SubmitButton onClick={handleSubmit} />
+        <SubmitButton onClick={handleColorsSubmit} />
       </form>
     </div>
   );

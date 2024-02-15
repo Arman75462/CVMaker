@@ -4,25 +4,38 @@ import profilePicture from "../assets/profile-pic.jpg";
 import Work from "./Work.jsx";
 import Education from "./Education.jsx";
 
-function Cv({ data }) {
+function Cv({
+  dataPersonalInfo,
+  dataContactInfo,
+  dataAdditionalSkills,
+  dataWorkExperience,
+  dataEducation,
+  dataLanguages,
+  dataColors,
+}) {
   return (
     /* 1- DISPLAY*/
     <div className="display">
       {/* 2- CV */}
       <main className="Cv">
         {/* 3- SIDEBAR */}
-        <aside className="sidebar">
+        <aside
+          className="sidebar"
+          style={{ backgroundColor: dataColors.leftSideCvColor }}
+        >
           {/* 4- SIDEBAR PERSONAL INFO */}
           <article className="sidebar__personal-info-section sidebar__section">
             <img
               src={profilePicture}
-              alt="Description"
+              alt="Your portrait"
               className="personal-info-section__profile-picture"
             />
             <h1 className="personal-info-section__full-name">
-              {data.fullName}
+              {dataPersonalInfo.fullName}
             </h1>
-            <p className="personal-info-section__job-title">Project manager</p>
+            <p className="personal-info-section__job-title">
+              {dataPersonalInfo.professionalTitle}
+            </p>
           </article>
 
           {/* 4- SIDEBAR CONTACT DETAILS SECTION */}
@@ -31,13 +44,13 @@ function Cv({ data }) {
               Contact
             </h2>
             <h3>Address:</h3>
-            <p>4567 Maple Avenue, Springfield</p>
+            <p>{dataContactInfo.address}</p>
             <h3>Phone:</h3>
-            <p>(555) 123-4567</p>
+            <p>{dataContactInfo.phoneNumber}</p>
             <h3>Email:</h3>
-            <p>jtaylor@example.com</p>
+            <p>{dataContactInfo.emailAddress}</p>
             <h3>LinkedIn:</h3>
-            <p>linkedin.com/in/jasminetaylor</p>
+            <p>{dataContactInfo.linkedIn}</p>
           </article>
 
           {/* 4- SIDEBAR SKILLS SECTION */}
@@ -60,20 +73,21 @@ function Cv({ data }) {
         </aside>
 
         {/* 3- MAIN-CONTENT */}
-        <section className="main-content">
+        <section
+          className="main-content"
+          style={{ backgroundColor: dataColors.rightSideCvColor }}
+        >
           <article className="main-content__professional-summary-section main-content__section">
             <h2 className="main-content__section-title">
-              Professional Summary
+              Personal Description
             </h2>
             <p className="main-content__professional-summary-text">
-              Seasoned professional with a decade of experience managing
-              cross-functional teams...
+              {dataPersonalInfo.personalDescription}
             </p>
           </article>
           <article className="main-content__work-experience main-content__section">
             <h2 className="main-content__section-title">Work Experience</h2>
-            <Work />
-            <Work />
+            {<Work dataWorkExperience={dataWorkExperience} />}
           </article>
           <article className="main-content__education main-content__section">
             <h2 className="main-content__section-title">Education</h2>

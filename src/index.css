@@ -103,8 +103,8 @@ GENERAL LAYOUT AND STYLES=====
   /* CV COLORS */
   --cv-section-background-color: #eeeeee;
   --cv-background-color: #eeeeee;
-  --cv-right-side-background-color: rgb(155, 255, 155);
-  --cv-left-side-background-color: white;
+  /* --cv-right-side-background-color: rgb(155, 255, 155);
+  --cv-left-side-background-color: white; */
 
   /* BUILDER COLOR */
   --builder-section-background-color: white;
