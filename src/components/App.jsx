@@ -52,46 +52,24 @@ function App() {
     leftSideCvColor: "",
   });
 
-  // Functions to handle cv-data submit
-  function handleCvPersonalInfo(newCvData) {
-    setCvPersonalInfo(newCvData);
-  }
-
-  function handleCvContactInfo(newCvData) {
-    setCvContactInfo(newCvData);
-  }
-
-  function handleCvAdditionalSkills(newCvData) {
-    setCvAdditionalSkills(newCvData);
-  }
-
-  function handleCvWorkExperience(newCvData) {
-    setCvWorkExperience(newCvData);
-  }
-
-  function handleCvEducation(newCvData) {
-    setCvEducation(newCvData);
-  }
-
-  function handleCvLanguages(newCvData) {
-    setCvLanguages(newCvData);
-  }
-
-  function handleCvColors(newCvData) {
-    setCvColors(newCvData);
+  // Higher order function to handle cv-data submit
+  function handleCvDataChange(setter) {
+    return function (newCvData) {
+      setter(newCvData);
+    };
   }
 
   return (
     /* 1- APP */
     <div className="App">
       <Builder
-        onCvPersonalInfoSubmit={handleCvPersonalInfo}
-        onCvContactInfoSubmit={handleCvContactInfo}
-        onCvAdditionalSkillsSubmit={handleCvAdditionalSkills}
-        onCvWorkExperienceSubmit={handleCvWorkExperience}
-        onCvEducationSubmit={handleCvEducation}
-        onCvLanguagesSubmit={handleCvLanguages}
-        onCvColorsSubmit={handleCvColors}
+        onCvPersonalInfoSubmit={handleCvDataChange(setCvPersonalInfo)}
+        onCvContactInfoSubmit={handleCvDataChange(setCvContactInfo)}
+        onCvAdditionalSkillsSubmit={handleCvDataChange(setCvAdditionalSkills)}
+        onCvWorkExperienceSubmit={handleCvDataChange(setCvWorkExperience)}
+        onCvEducationSubmit={handleCvDataChange(setCvEducation)}
+        onCvLanguagesSubmit={handleCvDataChange(setCvLanguages)}
+        onCvColorsSubmit={handleCvDataChange(setCvColors)}
       />
       <Cv
         dataPersonalInfo={cvPersonalInfo}
