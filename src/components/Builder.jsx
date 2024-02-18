@@ -27,9 +27,7 @@ function Builder({
     linkedIn: "",
   });
 
-  const [cvAdditionalSkills, setCvAdditionalSkills] = useState({
-    skill: "",
-  });
+  const [cvAdditionalSkills, setCvAdditionalSkills] = useState([]);
 
   const [cvWorkExperience, setCvWorkExperience] = useState({
     companyName: "",
@@ -57,18 +55,32 @@ function Builder({
     leftSideCvColor: "",
   });
 
-  // Function to handle input change
-  const handleChange = (setter) => (event) => {
-    const { id, value } = event.target;
-    setter((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
-  };
+  // Function to handle input change for states that contains an object
+  function handleChange(setter) {
+    return function (event) {
+      const { id, value } = event.target;
+      setter((prevState) => ({
+        ...prevState,
+        [id]: value,
+      }));
+    };
+  }
 
   // Function to handle button submit
   function handleSubmit(whereToSubmit, cvData) {
     whereToSubmit(cvData);
+  }
+
+  // Function to push a new skill to the cvAdditionalSkills array
+  function pushSkill() {
+    // Directly access the input element and its value
+    const skillInput = document.getElementById("skill");
+    const skillValue = skillInput.value.trim();
+
+    if (skillValue !== "") {
+      setCvAdditionalSkills([...cvAdditionalSkills, skillValue]);
+      skillInput.value = ""; // Clear the input field after adding the skill
+    }
   }
 
   return (
@@ -142,11 +154,12 @@ function Builder({
           value={cvPersonalInfo.personalDescription}
           onChange={handleChange(setCvPersonalInfo)}
         ></textarea>
-        {/* <SubmitButton onClick={handlePersonalInfoSubmit} /> */}
+
         <SubmitButton
           onClick={() => handleSubmit(onCvPersonalInfoSubmit, cvPersonalInfo)}
         />
       </form>
+
       {/* 2- CONTACT-FORM */}
       <form action="#" className="contact-form form">
         <h2 className="contact-form__title form__title">Contact Information</h2>
@@ -213,6 +226,7 @@ function Builder({
           onClick={() => handleSubmit(onCvContactInfoSubmit, cvContactInfo)}
         />
       </form>
+
       {/* 2- SKILLS FORM */}
       <form action="#" className="skills-form form">
         <h2 className="skills-form__title form__title">Additional Skills</h2>
@@ -227,16 +241,23 @@ function Builder({
             id="skill"
             placeholder="e.g. Strategic Planning"
           />
-          <AddRemoveBtn text="+" />
+          <AddRemoveBtn text="+" onClick={pushSkill} />
         </div>
-        <div className="skills-form__skill-card-section"></div>
+        <div className="skills-form__skill-card-section">
+          {cvAdditionalSkills.map((skill, index) => (
+            <div key={index} className="skills-form__skill-card">
+              {skill}
+            </div>
+          ))}
+        </div>
 
         <SubmitButton
-          onClick={() =>
-            handleSubmit(onCvAdditionalSkillsSubmit, cvAdditionalSkills)
-          }
+          onClick={() => {
+            handleSubmit(onCvAdditionalSkillsSubmit, cvAdditionalSkills);
+          }}
         />
       </form>
+
       {/* 2- EXPERIENCE-FORM */}
       <form action="#" className="experience-form form">
         <h2 className="experience-form__title form__title">Work Experience</h2>

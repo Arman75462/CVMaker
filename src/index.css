@@ -103,8 +103,6 @@ GENERAL LAYOUT AND STYLES=====
   /* CV COLORS */
   --cv-section-background-color: #eeeeee;
   --cv-background-color: #eeeeee;
-  /* --cv-right-side-background-color: rgb(155, 255, 155);
-  --cv-left-side-background-color: white; */
 
   /* BUILDER COLOR */
   --builder-section-background-color: white;
@@ -113,4 +111,8 @@ GENERAL LAYOUT AND STYLES=====
   --input-background-color: #eeeeee;
   --input-active-background-color: rgb(155, 255, 155);
   --input-border-color: #bdbdbd;
+
+  /* SKILLS-FORM-SKILL-CARD */
+  --skills-form-skill-card-background-color: navy;
+  --skills-form-skill-card-text-color: white;
 }

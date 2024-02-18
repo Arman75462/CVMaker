@@ -51,10 +51,6 @@ SPECIFIC LAYOUT AND STYLES==
 }
 
 /* 2- SKILLS FORM */
-.skills-form .SubmitButton {
-  margin-top: 1.5em;
-}
-
 .skills-form__flexbox {
   position: relative;
   display: flex;
@@ -68,6 +64,16 @@ SPECIFIC LAYOUT AND STYLES==
 
 .skills-form__skill-card-section {
   display: flex;
+  margin: 1.5em 0;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.skills-form__skill-card {
+  background-color: var(--skills-form-skill-card-background-color);
+  padding: 0.3em 1em;
+  border-radius: 15px;
+  color: var(--skills-form-skill-card-text-color);
 }
 
 /* 2- EXPERIENCE-FORM */

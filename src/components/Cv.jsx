@@ -59,15 +59,11 @@ function Cv({
               Skills
             </h2>
             <ul className="skills-section__skills-list">
-              <li className="skills-section__skills-list-item">Teamwork</li>
-              <li className="skills-section__skills-list-item">Programming</li>
-              <li className="skills-section__skills-list-item">
-                Communication
-              </li>
-              <li className="skills-section__skills-list-item">
-                Sales talents
-              </li>
-              <li className="skills-section__skills-list-item">Writing</li>
+              {dataAdditionalSkills.map((skill, index) => (
+                <li key={index} className="skills-section__skills-list-item">
+                  {skill}
+                </li>
+              ))}
             </ul>
           </article>
         </aside>
