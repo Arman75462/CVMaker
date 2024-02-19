@@ -72,7 +72,7 @@ function Builder({
   }
 
   // Function to push a new skill to the cvAdditionalSkills array
-  function pushSkill() {
+  function handlePushSkill() {
     // Directly access the input element and its value
     const skillInput = document.getElementById("skill");
     const skillValue = skillInput.value.trim();
@@ -81,6 +81,14 @@ function Builder({
       setCvAdditionalSkills([...cvAdditionalSkills, skillValue]);
       skillInput.value = ""; // Clear the input field after adding the skill
     }
+  }
+
+  // Function to remove a skill from the cvAdditionalSkills array
+  function handleRemoveSkill(index) {
+    // Create a new array without the skill at the provided index
+    const updatedSkills = cvAdditionalSkills.filter((_, i) => i !== index);
+    // Update the state with this new array
+    setCvAdditionalSkills(updatedSkills);
   }
 
   return (
@@ -241,12 +249,21 @@ function Builder({
             id="skill"
             placeholder="e.g. Strategic Planning"
           />
-          <AddRemoveBtn text="+" onClick={pushSkill} />
+          <AddRemoveBtn
+            text="+"
+            onClick={handlePushSkill}
+            className={"AddButton"}
+          />
         </div>
         <div className="skills-form__skill-card-section">
           {cvAdditionalSkills.map((skill, index) => (
             <div key={index} className="skills-form__skill-card">
               {skill}
+              <AddRemoveBtn
+                text="-"
+                onClick={() => handleRemoveSkill(index)}
+                className={"RemoveButton"}
+              />
             </div>
           ))}
         </div>
@@ -468,7 +485,7 @@ function Builder({
             id="language"
             placeholder="e.g. English"
           />
-          <AddRemoveBtn text="+" />
+          <AddRemoveBtn text="+" className={"AddButton"} />
         </div>
         <div className="languages-form__language-card-section"></div>
 

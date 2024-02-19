@@ -1,10 +1,15 @@
 import { useState } from "react";
 import "../styles/AddRemoveBtn.css";
 
-function AddRemoveBtn({ text, onClick }) {
+function AddRemoveBtn({ text, onClick, className }) {
   return (
     /* 1- ADD REMOVE BTN */
-    <button className="AddRemoveBtn" type="button" onClick={onClick}>
+    <button
+      className={`AddRemoveBtn ${className}`}
+      type="button"
+      onClick={onClick}
+      style={{ background: "none" }}
+    >
       {text}
     </button>
   );

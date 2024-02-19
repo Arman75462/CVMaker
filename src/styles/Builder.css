@@ -32,6 +32,16 @@ GENERAL LAYOUT AND STYLES=====
   font-weight: 600;
 }
 
+/* 2- SKILLS FORM */
+.RemoveButton {
+  margin-left: 0.6em;
+}
+
+/* 2- SKILLS FORM and 2- LANGUAGES-FORM */
+.AddButton {
+  right: 1em;
+}
+
 /*============================
 SPECIFIC LAYOUT AND STYLES==
 ==============================*/
@@ -71,9 +81,10 @@ SPECIFIC LAYOUT AND STYLES==
 
 .skills-form__skill-card {
   background-color: var(--skills-form-skill-card-background-color);
-  padding: 0.3em 1em;
+  padding: 0.3em 2em 0.3em 1em;
   border-radius: 15px;
   color: var(--skills-form-skill-card-text-color);
+  position: relative;
 }
 
 /* 2- EXPERIENCE-FORM */

@@ -21,7 +21,9 @@ function App() {
     linkedIn: "linkedin.com/in/jasminetaylor",
   });
 
-  const [cvAdditionalSkills, setCvAdditionalSkills] = useState([]);
+  const [cvAdditionalSkills, setCvAdditionalSkills] = useState([
+    "Strategic Planning",
+  ]);
 
   const [cvWorkExperience, setCvWorkExperience] = useState({
     companyName: "Global Enterprises Ltd.",
