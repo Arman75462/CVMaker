@@ -29,14 +29,25 @@ function Builder({
 
   const [cvAdditionalSkills, setCvAdditionalSkills] = useState([]);
 
-  const [cvWorkExperience, setCvWorkExperience] = useState({
+  /* const [cvWorkExperience, setCvWorkExperience] = useState({
     companyName: "",
     companyLocation: "",
     jobTitle: "",
     experienceStartDate: "",
     experienceEndDate: "",
     responsibilities: "",
-  });
+  }); */
+
+  const [cvWorkExperience, setCvWorkExperience] = useState([
+    {
+      companyName: "",
+      companyLocation: "",
+      jobTitle: "",
+      experienceStartDate: "",
+      experienceEndDate: "",
+      responsibilities: "",
+    },
+  ]);
 
   const [cvEducation, setCvEducation] = useState({
     schoolName: "",
@@ -69,41 +80,23 @@ function Builder({
     whereToSubmit(cvData);
   }
 
-  // Function to push a new skill to the cvAdditionalSkills array
-  function handlePushSkill() {
+  // Generic function to add an input value to a state array and clear the input field.
+  // Usage: Pass the state setter function and input field's ID as arguments.
+  function handlePushItem(setItemArray, inputElementId) {
     // Directly access the input element and its value
-    const skillInput = document.getElementById("skill");
-    const skillValue = skillInput.value.trim();
+    const inputElement = document.getElementById(inputElementId);
+    const inputValue = inputElement.value.trim();
 
-    if (skillValue !== "") {
-      setCvAdditionalSkills([...cvAdditionalSkills, skillValue]);
-      skillInput.value = ""; // Clear the input field after adding the skill
+    if (inputValue !== "") {
+      setItemArray((currentItems) => [...currentItems, inputValue]);
+      inputElement.value = ""; // Clear the input field after adding the item
     }
   }
 
-  // Function to remove a skill from the cvAdditionalSkills array
-  function handleRemoveSkill(index) {
-    // Create a new array without the skill at the provided index
-    const updatedSkills = cvAdditionalSkills.filter((_, i) => i !== index);
-    // Update the state with this new array
-    setCvAdditionalSkills(updatedSkills);
-  }
-
-  function handlePushLanguage() {
-    // Directly access the input element and its value
-    const languageInput = document.getElementById("language");
-    const languageValue = languageInput.value.trim();
-
-    if (languageValue !== "") {
-      setCvLanguages([...cvLanguages, languageValue]);
-      languageInput.value = "";
-    }
-  }
-
-  function handleRemoveLanguage(index) {
-    const updatedLanguages = cvLanguages.filter((_, i) => i !== index);
-    // Update the state with this new array
-    setCvLanguages(updatedLanguages);
+  // Generic function to remove an item from a state array based on its index.
+  // Usage: Pass the state setter function and the index of the item to be removed.
+  function handleRemoveItem(setItemArray, index) {
+    setItemArray((currentItems) => currentItems.filter((_, i) => i !== index));
   }
 
   return (
@@ -266,7 +259,7 @@ function Builder({
           />
           <AddRemoveBtn
             text="+"
-            onClick={handlePushSkill}
+            onClick={() => handlePushItem(setCvAdditionalSkills, "skill")}
             className={"AddButton"}
           />
         </div>
@@ -276,7 +269,7 @@ function Builder({
               {skill}
               <AddRemoveBtn
                 text="-"
-                onClick={() => handleRemoveSkill(index)}
+                onClick={() => handleRemoveItem(setCvAdditionalSkills, index)}
                 className={"RemoveButton"}
               />
             </div>
@@ -502,7 +495,7 @@ function Builder({
           />
           <AddRemoveBtn
             text="+"
-            onClick={handlePushLanguage}
+            onClick={() => handlePushItem(setCvLanguages, "language")}
             className={"AddButton"}
           />
         </div>
@@ -512,7 +505,7 @@ function Builder({
               {language}
               <AddRemoveBtn
                 text="-"
-                onClick={() => handleRemoveLanguage(index)}
+                onClick={() => handleRemoveItem(setCvLanguages, index)}
                 className={"RemoveButton"}
               />
             </div>

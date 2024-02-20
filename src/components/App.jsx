@@ -25,7 +25,7 @@ function App() {
     "Strategic Planning",
   ]);
 
-  const [cvWorkExperience, setCvWorkExperience] = useState({
+  /*  const [cvWorkExperience, setCvWorkExperience] = useState({
     companyName: "Global Enterprises Ltd.",
     companyLocation: "Chicago, IL",
     jobTitle: "Senior Consultant",
@@ -33,7 +33,19 @@ function App() {
     experienceEndDate: "2020-06",
     responsibilities:
       "Orchestrated the strategic planning for key client projects, ensuring  timely delivery...",
-  });
+  }); */
+
+  const [cvWorkExperience, setCvWorkExperience] = useState([
+    {
+      companyName: "Global Enterprises Ltd.",
+      companyLocation: "Chicago, IL",
+      jobTitle: "Senior Consultant",
+      experienceStartDate: "2018-03",
+      experienceEndDate: "2020-06",
+      responsibilities:
+        "Orchestrated the strategic planning for key client projects, ensuring  timely delivery...",
+    },
+  ]);
 
   const [cvEducation, setCvEducation] = useState({
     schoolName: "",

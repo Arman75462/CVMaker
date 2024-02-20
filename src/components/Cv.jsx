@@ -83,7 +83,7 @@ function Cv({
           </article>
           <article className="main-content__work-experience main-content__section">
             <h2 className="main-content__section-title">Work Experience</h2>
-            {<Work dataWorkExperience={dataWorkExperience} />}
+            <Work dataWorkExperience={dataWorkExperience} />
           </article>
           <article className="main-content__education main-content__section">
             <h2 className="main-content__section-title">Education</h2>
