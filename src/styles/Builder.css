@@ -100,10 +100,6 @@ SPECIFIC LAYOUT AND STYLES==
 }
 
 /* 2- LANGUAGES-FORM */
-.languages-form .SubmitButton {
-  margin-top: 1.5em;
-}
-
 .languages-form__flexbox {
   position: relative;
   display: flex;
@@ -117,6 +113,17 @@ SPECIFIC LAYOUT AND STYLES==
 
 .languages-form__language-card-section {
   display: flex;
+  margin: 1.5em 0;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.languages-form__language-card {
+  background-color: var(--languages-form-skill-card-background-color);
+  padding: 0.3em 2em 0.3em 1em;
+  border-radius: 15px;
+  color: var(--languages-form-skill-card-text-color);
+  position: relative;
 }
 
 /* 2- CV COLOR */

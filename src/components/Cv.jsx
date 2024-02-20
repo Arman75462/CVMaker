@@ -92,6 +92,13 @@ function Cv({
           </article>
           <article className="main-content__languages main-content__section">
             <h2 className="main-content__section-title">Languages</h2>
+            <ul className="languages__language-list">
+              {dataLanguages.map((language, index) => (
+                <li key={index} className="languages__language-list-item">
+                  {language}
+                </li>
+              ))}
+            </ul>
           </article>
         </section>
       </main>

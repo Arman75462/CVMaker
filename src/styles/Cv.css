@@ -92,3 +92,7 @@ SPECIFIC LAYOUT AND STYLES=
   border-bottom: 1px solid black;
   padding-bottom: 0.2em;
 }
+
+.languages__language-list-item::before {
+  content: "- ";
+}

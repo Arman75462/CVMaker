@@ -46,9 +46,7 @@ function Builder({
     educationEndDate: "",
   });
 
-  const [cvLanguages, setCvLanguages] = useState({
-    language: "",
-  });
+  const [cvLanguages, setCvLanguages] = useState([]);
 
   const [cvColors, setCvColors] = useState({
     rightSideCvColor: "",
@@ -89,6 +87,23 @@ function Builder({
     const updatedSkills = cvAdditionalSkills.filter((_, i) => i !== index);
     // Update the state with this new array
     setCvAdditionalSkills(updatedSkills);
+  }
+
+  function handlePushLanguage() {
+    // Directly access the input element and its value
+    const languageInput = document.getElementById("language");
+    const languageValue = languageInput.value.trim();
+
+    if (languageValue !== "") {
+      setCvLanguages([...cvLanguages, languageValue]);
+      languageInput.value = "";
+    }
+  }
+
+  function handleRemoveLanguage(index) {
+    const updatedLanguages = cvLanguages.filter((_, i) => i !== index);
+    // Update the state with this new array
+    setCvLanguages(updatedLanguages);
   }
 
   return (
@@ -483,11 +498,26 @@ function Builder({
             className="languages-form__input form__input"
             type="text"
             id="language"
-            placeholder="e.g. English"
+            placeholder="e.g. English: C1 Level"
           />
-          <AddRemoveBtn text="+" className={"AddButton"} />
+          <AddRemoveBtn
+            text="+"
+            onClick={handlePushLanguage}
+            className={"AddButton"}
+          />
         </div>
-        <div className="languages-form__language-card-section"></div>
+        <div className="languages-form__language-card-section">
+          {cvLanguages.map((language, index) => (
+            <div key={index} className="languages-form__language-card">
+              {language}
+              <AddRemoveBtn
+                text="-"
+                onClick={() => handleRemoveLanguage(index)}
+                className={"RemoveButton"}
+              />
+            </div>
+          ))}
+        </div>
 
         <SubmitButton
           onClick={() => handleSubmit(onCvLanguagesSubmit, cvLanguages)}

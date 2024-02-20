@@ -43,9 +43,7 @@ function App() {
     educationEndDate: "",
   });
 
-  const [cvLanguages, setCvLanguages] = useState({
-    language: "",
-  });
+  const [cvLanguages, setCvLanguages] = useState(["English: C1 Level"]);
 
   const [cvColors, setCvColors] = useState({
     rightSideCvColor: "lightgray",
