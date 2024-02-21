@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "../styles/Builder.css";
+import "../../styles/Builder.css";
 import AddRemoveBtn from "./AddRemoveBtn.jsx";
 import SubmitButton from "./SubmitButton.jsx";
+import Card from "./Card.jsx";
 
 function Builder({
   onCvPersonalInfoSubmit,
@@ -29,25 +30,7 @@ function Builder({
 
   const [cvAdditionalSkills, setCvAdditionalSkills] = useState([]);
 
-  /* const [cvWorkExperience, setCvWorkExperience] = useState({
-    companyName: "",
-    companyLocation: "",
-    jobTitle: "",
-    experienceStartDate: "",
-    experienceEndDate: "",
-    responsibilities: "",
-  }); */
-
-  const [cvWorkExperience, setCvWorkExperience] = useState([
-    {
-      companyName: "",
-      companyLocation: "",
-      jobTitle: "",
-      experienceStartDate: "",
-      experienceEndDate: "",
-      responsibilities: "",
-    },
-  ]);
+  const [cvWorkExperience, setCvWorkExperience] = useState([]);
 
   const [cvEducation, setCvEducation] = useState({
     schoolName: "",
@@ -75,7 +58,7 @@ function Builder({
     };
   }
 
-  // Function to handle button submit
+  // Function to handle button submit for each submit button
   function handleSubmit(whereToSubmit, cvData) {
     whereToSubmit(cvData);
   }
@@ -97,6 +80,54 @@ function Builder({
   // Usage: Pass the state setter function and the index of the item to be removed.
   function handleRemoveItem(setItemArray, index) {
     setItemArray((currentItems) => currentItems.filter((_, i) => i !== index));
+  }
+
+  // Function to handle adding work experience info to its state
+  function handleAddWorkExperience(setCvWorkExperience) {
+    // Gather input values from the form fields
+    const companyName = document.getElementById("companyName").value.trim();
+    const companyLocation = document
+      .getElementById("companyLocation")
+      .value.trim();
+    const jobTitle = document.getElementById("jobTitle").value.trim();
+    const experienceStartDate = document
+      .getElementById("experienceStartDate")
+      .value.trim();
+    const experienceEndDate = document
+      .getElementById("experienceEndDate")
+      .value.trim();
+    const responsibilities = document
+      .getElementById("responsibilities")
+      .value.trim();
+
+    // Check if all necessary fields are filled (assuming companyName and jobTitle are required for simplicity)
+    if (companyName !== "" && jobTitle !== "") {
+      // Create a new work experience object with the input values
+      const newExperience = {
+        companyName,
+        companyLocation,
+        jobTitle,
+        experienceStartDate,
+        experienceEndDate,
+        responsibilities,
+      };
+
+      // Update the cvWorkExperience state array with the new object
+      setCvWorkExperience((prevExperiences) => [
+        ...prevExperiences,
+        newExperience,
+      ]);
+
+      // Optionally clear the input fields after adding the new experience
+      document.getElementById("companyName").value = "";
+      document.getElementById("companyLocation").value = "";
+      document.getElementById("jobTitle").value = "";
+      document.getElementById("experienceStartDate").value = "";
+      document.getElementById("experienceEndDate").value = "";
+      document.getElementById("responsibilities").value = "";
+    } else {
+      alert("Fill in at least the company name and and your job/career title.");
+    }
   }
 
   return (
@@ -265,14 +296,13 @@ function Builder({
         </div>
         <div className="skills-form__skill-card-section">
           {cvAdditionalSkills.map((skill, index) => (
-            <div key={index} className="skills-form__skill-card">
-              {skill}
+            <Card key={index} text={skill}>
               <AddRemoveBtn
                 text="-"
                 onClick={() => handleRemoveItem(setCvAdditionalSkills, index)}
                 className={"RemoveButton"}
               />
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -299,8 +329,6 @@ function Builder({
           type="text"
           id="companyName"
           placeholder="e.g. Global Enterprises Ltd."
-          value={cvWorkExperience.companyName}
-          onChange={handleChange(setCvWorkExperience)}
         />
 
         {/* EXPERIENCE COMPANY LOCATION INPUT */}
@@ -315,8 +343,6 @@ function Builder({
           type="text"
           id="companyLocation"
           placeholder="e.g. Chicago, IL"
-          value={cvWorkExperience.companyLocation}
-          onChange={handleChange(setCvWorkExperience)}
         />
 
         {/* EXPERIENCE TITLE INPUT */}
@@ -331,8 +357,6 @@ function Builder({
           type="text"
           id="jobTitle"
           placeholder="e.g. Senior Consultant"
-          value={cvWorkExperience.jobTitle}
-          onChange={handleChange(setCvWorkExperience)}
         />
 
         <div className="experience-form__flexbox">
@@ -347,8 +371,6 @@ function Builder({
             className="experience-form__input form__input"
             type="month"
             id="experienceStartDate"
-            value={cvWorkExperience.experienceStartDate}
-            onChange={handleChange(setCvWorkExperience)}
           />
         </div>
 
@@ -364,8 +386,6 @@ function Builder({
             className="experience-form__input form__input"
             type="month"
             id="experienceEndDate"
-            value={cvWorkExperience.experienceEndDate}
-            onChange={handleChange(setCvWorkExperience)}
           />
         </div>
 
@@ -382,11 +402,27 @@ function Builder({
           name="responsibilities"
           rows="5"
           placeholder="e.g. Orchestrated the strategic planning for key client projects, ensuring timely delivery..."
-          value={cvWorkExperience.responsibilities}
-          onChange={handleChange(setCvWorkExperience)}
         ></textarea>
 
-        <div className="experience-form__experience-card-section"></div>
+        <AddRemoveBtn
+          text="+"
+          onClick={() => handleAddWorkExperience(setCvWorkExperience)}
+        />
+
+        <div className="experience-form__experience-card-section">
+          {cvWorkExperience.map((workExperience, index) => (
+            <Card
+              key={index}
+              text={`Work ${workExperience.companyName}, ${workExperience.jobTitle}`}
+            >
+              <AddRemoveBtn
+                text="-"
+                onClick={() => handleRemoveItem(setCvWorkExperience, index)}
+                className={"RemoveButton"}
+              />
+            </Card>
+          ))}
+        </div>
 
         <SubmitButton
           onClick={() =>
@@ -499,16 +535,16 @@ function Builder({
             className={"AddButton"}
           />
         </div>
+
         <div className="languages-form__language-card-section">
           {cvLanguages.map((language, index) => (
-            <div key={index} className="languages-form__language-card">
-              {language}
+            <Card key={index} text={language}>
               <AddRemoveBtn
                 text="-"
                 onClick={() => handleRemoveItem(setCvLanguages, index)}
                 className={"RemoveButton"}
               />
-            </div>
+            </Card>
           ))}
         </div>
 

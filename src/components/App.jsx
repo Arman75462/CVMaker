@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../styles/App.css";
 
-import Builder from "./Builder.jsx";
-import Cv from "./Cv.jsx";
+import Builder from "./Builder/Builder.jsx";
+import Cv from "./Cv/Cv.jsx";
 
 function App() {
   // States for each cv-data section
@@ -24,16 +24,6 @@ function App() {
   const [cvAdditionalSkills, setCvAdditionalSkills] = useState([
     "Strategic Planning",
   ]);
-
-  /*  const [cvWorkExperience, setCvWorkExperience] = useState({
-    companyName: "Global Enterprises Ltd.",
-    companyLocation: "Chicago, IL",
-    jobTitle: "Senior Consultant",
-    experienceStartDate: "2018-03",
-    experienceEndDate: "2020-06",
-    responsibilities:
-      "Orchestrated the strategic planning for key client projects, ensuring  timely delivery...",
-  }); */
 
   const [cvWorkExperience, setCvWorkExperience] = useState([
     {

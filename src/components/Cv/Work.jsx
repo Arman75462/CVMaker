@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Work.css";
+import "../../styles/Work.css";
 
 function Work({ dataWorkExperience }) {
   return (

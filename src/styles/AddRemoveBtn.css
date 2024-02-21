@@ -7,6 +7,5 @@ SPECIFIC LAYOUT AND STYLES=
 ==============================*/
 /* 1- ADD REMOVE BTN */
 .AddRemoveBtn {
-  position: absolute;
   font-size: 1.2rem;
 }

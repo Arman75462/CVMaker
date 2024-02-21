@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../styles/Cv.css";
-import profilePicture from "../assets/profile-pic.jpg";
+import "../../styles/Cv.css";
+import profilePicture from "../../assets/profile-pic.jpg";
 import Work from "./Work.jsx";
 import Education from "./Education.jsx";
 
@@ -83,7 +83,9 @@ function Cv({
           </article>
           <article className="main-content__work-experience main-content__section">
             <h2 className="main-content__section-title">Work Experience</h2>
-            <Work dataWorkExperience={dataWorkExperience} />
+            {dataWorkExperience.map((workExperience, index) => (
+              <Work key={index} dataWorkExperience={workExperience} />
+            ))}
           </article>
           <article className="main-content__education main-content__section">
             <h2 className="main-content__section-title">Education</h2>

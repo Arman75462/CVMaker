@@ -67,6 +67,10 @@ SPECIFIC LAYOUT AND STYLES==
   align-items: center;
 }
 
+.skills-form__flexbox .AddButton {
+  position: absolute;
+}
+
 .skills-form__input {
   flex: 1;
   margin: 0;
@@ -77,14 +81,6 @@ SPECIFIC LAYOUT AND STYLES==
   margin: 1.5em 0;
   gap: 1em;
   flex-wrap: wrap;
-}
-
-.skills-form__skill-card {
-  background-color: var(--skills-form-skill-card-background-color);
-  padding: 0.3em 2em 0.3em 1em;
-  border-radius: 15px;
-  color: var(--skills-form-skill-card-text-color);
-  position: relative;
 }
 
 /* 2- EXPERIENCE-FORM */
@@ -99,11 +95,22 @@ SPECIFIC LAYOUT AND STYLES==
   flex-direction: column;
 }
 
+.experience-form__experience-card-section {
+  display: flex;
+  margin: 1.5em 0;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
 /* 2- LANGUAGES-FORM */
 .languages-form__flexbox {
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.languages-form__flexbox .AddButton {
+  position: absolute;
 }
 
 .languages-form__input {
@@ -116,14 +123,6 @@ SPECIFIC LAYOUT AND STYLES==
   margin: 1.5em 0;
   gap: 1em;
   flex-wrap: wrap;
-}
-
-.languages-form__language-card {
-  background-color: var(--languages-form-skill-card-background-color);
-  padding: 0.3em 2em 0.3em 1em;
-  border-radius: 15px;
-  color: var(--languages-form-skill-card-text-color);
-  position: relative;
 }
 
 /* 2- CV COLOR */

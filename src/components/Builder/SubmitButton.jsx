@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/SubmitButton.css";
+import "../../styles/SubmitButton.css";
 
 function SubmitButton({ onClick }) {
   return (

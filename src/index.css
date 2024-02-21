@@ -112,11 +112,7 @@ GENERAL LAYOUT AND STYLES=====
   --input-active-background-color: rgb(155, 255, 155);
   --input-border-color: #bdbdbd;
 
-  /* SKILLS-FORM-SKILL-CARD COLORS */
-  --skills-form-skill-card-background-color: navy;
-  --skills-form-skill-card-text-color: white;
-
-  /* LANGUAGES-FORM-LANGUAGE-CARD COLORS */
-  --languages-form-skill-card-background-color: navy;
-  --languages-form-skill-card-text-color: white;
+  /* CARD COLORS */
+  --card-background-color: navy;
+  --card-text-color: white;
 }

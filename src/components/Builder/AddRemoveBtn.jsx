@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/AddRemoveBtn.css";
+import "../../styles/AddRemoveBtn.css";
 
 function AddRemoveBtn({ text, onClick, className }) {
   return (
