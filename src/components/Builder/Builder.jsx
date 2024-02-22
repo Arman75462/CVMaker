@@ -42,6 +42,18 @@ function Builder({
     leftSideCvColor: "",
   });
 
+  // Function to handle input change for states that contains an image
+  function handleImageChange(event) {
+    const { id, files } = event.target;
+    if (files.length > 0) {
+      const file = files[0];
+      setCvPersonalInfo((prevState) => ({
+        ...prevState,
+        [id]: URL.createObjectURL(file), // Creates a URL for the uploaded file
+      }));
+    }
+  }
+
   // Function to handle input change for states that contains an object
   function handleChange(setter) {
     return function (event) {
@@ -172,6 +184,7 @@ function Builder({
         <h2 className="personal-info-form__title form__title">
           Personal Information
         </h2>
+
         {/* FULLNAME INPUT */}
         <label
           className="personal-info-form__label form__label"
@@ -204,6 +217,7 @@ function Builder({
           value={cvPersonalInfo.professionalTitle}
           onChange={handleChange(setCvPersonalInfo)}
         />
+
         {/* Image Upload Input */}
         <label
           className="personal-info-form__label form__label"
@@ -216,9 +230,9 @@ function Builder({
           type="file"
           id="imageUpload"
           accept="image/*" // Optional: Restrict to image files only
-          value={cvPersonalInfo.imageUpload}
-          onChange={handleChange(setCvPersonalInfo)}
+          onChange={handleImageChange}
         />
+
         {/* PERSONAL DESCRIPTION TEXTAREA */}
         <label
           className="personal-info-form__label form__label"
@@ -314,6 +328,7 @@ function Builder({
         <label className="skills-form__label form__label" htmlFor="skill">
           Skill:
         </label>
+
         <div className="skills-form__flexbox">
           {/* SKILL INPUT */}
           <input
@@ -331,7 +346,7 @@ function Builder({
 
         <CardSection>
           {cvAdditionalSkills.map((skill, index) => (
-            <Card key={index} text={skill}>
+            <Card key={skill} text={skill}>
               <AddRemoveBtn
                 text="-"
                 onClick={() => handleRemoveItem(setCvAdditionalSkills, index)}
@@ -447,7 +462,7 @@ function Builder({
         <CardSection>
           {cvWorkExperience.map((workExperience, index) => (
             <Card
-              key={index}
+              key={workExperience.companyName + workExperience.jobTitle}
               text={`${workExperience.companyName}, ${workExperience.jobTitle}`}
             >
               <AddRemoveBtn
@@ -551,7 +566,7 @@ function Builder({
         <CardSection>
           {cvEducation.map((education, index) => (
             <Card
-              key={index}
+              key={education.schoolName + education.degreeTitle}
               text={`${education.schoolName}, ${education.degreeTitle}`}
             >
               <AddRemoveBtn
@@ -592,7 +607,7 @@ function Builder({
 
         <CardSection>
           {cvLanguages.map((language, index) => (
-            <Card key={index} text={language}>
+            <Card key={language} text={language}>
               <AddRemoveBtn
                 text="-"
                 onClick={() => handleRemoveItem(setCvLanguages, index)}

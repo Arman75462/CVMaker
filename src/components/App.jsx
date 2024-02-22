@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "../styles/App.css";
-
 import Builder from "./Builder/Builder.jsx";
 import Cv from "./Cv/Cv.jsx";
+import profilePicture from "../assets/profile-pic.jpg";
 
 function App() {
   // States for each cv-data section
   const [cvPersonalInfo, setCvPersonalInfo] = useState({
     fullName: "Jasmine Taylor",
     professionalTitle: "Project Manager",
-    imageUpload: "",
+    imageUpload: profilePicture,
     personalDescription:
       "Seasoned professional with a decade of experience managing cross-functional teams",
   });

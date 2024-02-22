@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../../styles/Cv.css";
-import profilePicture from "../../assets/profile-pic.jpg";
 import Work from "./Work.jsx";
 import Education from "./Education.jsx";
 
@@ -25,11 +24,13 @@ function Cv({
         >
           {/* 4- SIDEBAR PERSONAL INFO */}
           <article className="sidebar__personal-info-section sidebar__section">
-            <img
-              src={profilePicture}
-              alt="Your portrait"
-              className="personal-info-section__profile-picture"
-            />
+            {dataPersonalInfo.imageUpload && (
+              <img
+                src={dataPersonalInfo.imageUpload}
+                alt="Uploaded"
+                className="personal-info-section__profile-picture"
+              />
+            )}
             <h1 className="personal-info-section__full-name">
               {dataPersonalInfo.fullName}
             </h1>
