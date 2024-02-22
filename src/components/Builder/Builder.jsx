@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../../styles/Builder.css";
 import AddRemoveBtn from "./AddRemoveBtn.jsx";
 import SubmitButton from "./SubmitButton.jsx";
+import CardSection from "./CardSection.jsx";
 import Card from "./Card.jsx";
 
 function Builder({
@@ -32,13 +33,7 @@ function Builder({
 
   const [cvWorkExperience, setCvWorkExperience] = useState([]);
 
-  const [cvEducation, setCvEducation] = useState({
-    schoolName: "",
-    schoolLocation: "",
-    degreeTitle: "",
-    educationStartDate: "",
-    educationEndDate: "",
-  });
+  const [cvEducation, setCvEducation] = useState([]);
 
   const [cvLanguages, setCvLanguages] = useState([]);
 
@@ -127,6 +122,45 @@ function Builder({
       document.getElementById("responsibilities").value = "";
     } else {
       alert("Fill in at least the company name and and your job/career title.");
+    }
+  }
+
+  function handleAddEducation(setCvEducation) {
+    // Gather input values from the form fields
+    const schoolName = document.getElementById("schoolName").value.trim();
+    const schoolLocation = document
+      .getElementById("schoolLocation")
+      .value.trim();
+    const degreeTitle = document.getElementById("degreeTitle").value.trim();
+    const educationStartDate = document
+      .getElementById("educationStartDate")
+      .value.trim();
+    const educationEndDate = document
+      .getElementById("educationEndDate")
+      .value.trim();
+
+    // Check if all necessary fields are filled (assuming schoolName and degreeTitle are required for simplicity)
+    if (schoolName !== "" && degreeTitle !== "") {
+      // Create a new education object with the input values
+      const newEducation = {
+        schoolName,
+        schoolLocation,
+        degreeTitle,
+        educationStartDate,
+        educationEndDate,
+      };
+
+      // Update the cvEducation state array with the new object
+      setCvEducation((prevEducations) => [...prevEducations, newEducation]);
+
+      // Optionally clear the input fields after adding the new education
+      document.getElementById("schoolName").value = "";
+      document.getElementById("schoolLocation").value = "";
+      document.getElementById("degreeTitle").value = "";
+      document.getElementById("educationStartDate").value = "";
+      document.getElementById("educationEndDate").value = "";
+    } else {
+      alert("Fill in at least the school name and your degree title.");
     }
   }
 
@@ -294,7 +328,8 @@ function Builder({
             className={"AddButton"}
           />
         </div>
-        <div className="skills-form__skill-card-section">
+
+        <CardSection>
           {cvAdditionalSkills.map((skill, index) => (
             <Card key={index} text={skill}>
               <AddRemoveBtn
@@ -304,7 +339,7 @@ function Builder({
               />
             </Card>
           ))}
-        </div>
+        </CardSection>
 
         <SubmitButton
           onClick={() => {
@@ -409,11 +444,11 @@ function Builder({
           onClick={() => handleAddWorkExperience(setCvWorkExperience)}
         />
 
-        <div className="experience-form__experience-card-section">
+        <CardSection>
           {cvWorkExperience.map((workExperience, index) => (
             <Card
               key={index}
-              text={`Work ${workExperience.companyName}, ${workExperience.jobTitle}`}
+              text={`${workExperience.companyName}, ${workExperience.jobTitle}`}
             >
               <AddRemoveBtn
                 text="-"
@@ -422,7 +457,7 @@ function Builder({
               />
             </Card>
           ))}
-        </div>
+        </CardSection>
 
         <SubmitButton
           onClick={() =>
@@ -507,7 +542,26 @@ function Builder({
             id="educationEndDate"
           />
         </div>
-        <div className="education-form__education-card-section"></div>
+
+        <AddRemoveBtn
+          text="+"
+          onClick={() => handleAddEducation(setCvEducation)}
+        />
+
+        <CardSection>
+          {cvEducation.map((education, index) => (
+            <Card
+              key={index}
+              text={`${education.schoolName}, ${education.degreeTitle}`}
+            >
+              <AddRemoveBtn
+                text="-"
+                onClick={() => handleRemoveItem(setCvEducation, index)}
+                className={"RemoveButton"}
+              />
+            </Card>
+          ))}
+        </CardSection>
 
         <SubmitButton
           onClick={() => handleSubmit(onCvEducationSubmit, cvEducation)}
@@ -536,7 +590,7 @@ function Builder({
           />
         </div>
 
-        <div className="languages-form__language-card-section">
+        <CardSection>
           {cvLanguages.map((language, index) => (
             <Card key={index} text={language}>
               <AddRemoveBtn
@@ -546,7 +600,7 @@ function Builder({
               />
             </Card>
           ))}
-        </div>
+        </CardSection>
 
         <SubmitButton
           onClick={() => handleSubmit(onCvLanguagesSubmit, cvLanguages)}

@@ -37,13 +37,15 @@ function App() {
     },
   ]);
 
-  const [cvEducation, setCvEducation] = useState({
-    schoolName: "",
-    schoolLocation: "",
-    degreeTitle: "",
-    educationStartDate: "",
-    educationEndDate: "",
-  });
+  const [cvEducation, setCvEducation] = useState([
+    {
+      schoolName: "State University",
+      schoolLocation: "Columbus, OH",
+      degreeTitle: "MBA in Business Administration",
+      educationStartDate: "2018-03",
+      educationEndDate: "2020-06",
+    },
+  ]);
 
   const [cvLanguages, setCvLanguages] = useState(["English: C1 Level"]);
 

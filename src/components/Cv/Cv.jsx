@@ -89,8 +89,9 @@ function Cv({
           </article>
           <article className="main-content__education main-content__section">
             <h2 className="main-content__section-title">Education</h2>
-            <Education />
-            <Education />
+            {dataEducation.map((education, index) => (
+              <Education key={index} dataEducation={education} />
+            ))}
           </article>
           <article className="main-content__languages main-content__section">
             <h2 className="main-content__section-title">Languages</h2>

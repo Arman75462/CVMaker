@@ -1,0 +1,14 @@
+/*============================
+GENERAL LAYOUT AND STYLES==
+==============================*/
+
+/*============================
+SPECIFIC LAYOUT AND STYLES=
+==============================*/
+/* 1- CARD SECTION */
+.CardSection {
+  display: flex;
+  margin: 1.5em 0;
+  gap: 1em;
+  flex-wrap: wrap;
+}
