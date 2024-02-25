@@ -410,7 +410,7 @@ function Builder({
           className="experience-form__input form__input"
           type="text"
           id="jobTitle"
-          placeholder="e.g. Senior Consultant"
+          placeholder="e.g. Consultant"
         />
 
         <div className="experience-form__flexbox">

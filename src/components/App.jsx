@@ -24,17 +24,29 @@ function App() {
 
   const [cvAdditionalSkills, setCvAdditionalSkills] = useState([
     "Strategic Planning",
+    "Management",
+    "Multitasking",
+    "Effective communication",
   ]);
 
   const [cvWorkExperience, setCvWorkExperience] = useState([
     {
       companyName: "Global Enterprises Ltd.",
       companyLocation: "Chicago, IL",
-      jobTitle: "Senior Consultant",
+      jobTitle: "Consultant",
       experienceStartDate: "2018-03",
       experienceEndDate: "2020-06",
       responsibilities:
-        "Orchestrated the strategic planning for key client projects, ensuring  timely delivery...",
+        "Assisted in the strategic planning for key client projects, contributing to ensuring timely delivery and maintaining client satisfaction.",
+    },
+    {
+      companyName: "Innovative Tech Solutions",
+      companyLocation: "New York, NY",
+      jobTitle: "Project Manager",
+      experienceStartDate: "2020-07",
+      experienceEndDate: "2023-01",
+      responsibilities:
+        "Led a team of software developers and designers to deliver cutting-edge technology solutions.",
     },
   ]);
 

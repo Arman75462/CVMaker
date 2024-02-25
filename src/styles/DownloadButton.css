@@ -7,7 +7,6 @@ SPECIFIC LAYOUT AND STYLES=
 ==============================*/
 /* 1- DOWNLOAD BUTTON */
 .DownloadButton {
-  background-image: url(../assets/download-icon.svg);
   background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: center;
