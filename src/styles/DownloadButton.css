@@ -1,0 +1,35 @@
+/*============================
+GENERAL LAYOUT AND STYLES==
+==============================*/
+
+/*============================
+SPECIFIC LAYOUT AND STYLES=
+==============================*/
+/* 1- DOWNLOAD BUTTON */
+.DownloadButton {
+  background-image: url(../assets/download-icon.svg);
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--download-button-background-color);
+  padding: 2em;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1.5em;
+  right: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.33);
+  transition: box-shadow 0.3s ease, scale 0.3s ease;
+}
+
+.DownloadButton:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.45);
+  scale: 1.03;
+}
+
+.DownloadButton:focus {
+  border: 2px solid black;
+}
+
+.DownloadButton:active {
+  background-color: var(--download-button-background-color-active);
+}

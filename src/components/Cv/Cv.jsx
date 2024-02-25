@@ -16,7 +16,7 @@ function Cv({
     /* 1- DISPLAY*/
     <div className="display">
       {/* 2- CV */}
-      <main className="Cv">
+      <main className="Cv" id="cv-content">
         {/* 3- SIDEBAR */}
         <aside
           className="sidebar"

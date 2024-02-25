@@ -11,6 +11,4 @@ SPECIFIC LAYOUT AND STYLES=
   padding: 0.3em 1em;
   border-radius: 15px;
   color: var(--card-text-color);
-  display: flex;
-  justify-content: flex-end;
 }

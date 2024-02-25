@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/App.css";
 import Builder from "./Builder/Builder.jsx";
 import Cv from "./Cv/Cv.jsx";
+import DownloadButton from "./DownloadButton.jsx";
 import profilePicture from "../assets/profile-pic.jpg";
 
 function App() {
@@ -47,7 +48,10 @@ function App() {
     },
   ]);
 
-  const [cvLanguages, setCvLanguages] = useState(["English: C1 Level"]);
+  const [cvLanguages, setCvLanguages] = useState([
+    "English: Level C1",
+    "French: Level B2",
+  ]);
 
   const [cvColors, setCvColors] = useState({
     rightSideCvColor: "lightgray",
@@ -62,27 +66,31 @@ function App() {
   }
 
   return (
-    /* 1- APP */
-    <div className="App">
-      <Builder
-        onCvPersonalInfoSubmit={handleCvDataChange(setCvPersonalInfo)}
-        onCvContactInfoSubmit={handleCvDataChange(setCvContactInfo)}
-        onCvAdditionalSkillsSubmit={handleCvDataChange(setCvAdditionalSkills)}
-        onCvWorkExperienceSubmit={handleCvDataChange(setCvWorkExperience)}
-        onCvEducationSubmit={handleCvDataChange(setCvEducation)}
-        onCvLanguagesSubmit={handleCvDataChange(setCvLanguages)}
-        onCvColorsSubmit={handleCvDataChange(setCvColors)}
-      />
-      <Cv
-        dataPersonalInfo={cvPersonalInfo}
-        dataContactInfo={cvContactInfo}
-        dataAdditionalSkills={cvAdditionalSkills}
-        dataWorkExperience={cvWorkExperience}
-        dataEducation={cvEducation}
-        dataLanguages={cvLanguages}
-        dataColors={cvColors}
-      />
-    </div>
+    <>
+      <div className="App">
+        {/* /* 1- APP */}
+        <Builder
+          onCvPersonalInfoSubmit={handleCvDataChange(setCvPersonalInfo)}
+          onCvContactInfoSubmit={handleCvDataChange(setCvContactInfo)}
+          onCvAdditionalSkillsSubmit={handleCvDataChange(setCvAdditionalSkills)}
+          onCvWorkExperienceSubmit={handleCvDataChange(setCvWorkExperience)}
+          onCvEducationSubmit={handleCvDataChange(setCvEducation)}
+          onCvLanguagesSubmit={handleCvDataChange(setCvLanguages)}
+          onCvColorsSubmit={handleCvDataChange(setCvColors)}
+        />
+        <Cv
+          dataPersonalInfo={cvPersonalInfo}
+          dataContactInfo={cvContactInfo}
+          dataAdditionalSkills={cvAdditionalSkills}
+          dataWorkExperience={cvWorkExperience}
+          dataEducation={cvEducation}
+          dataLanguages={cvLanguages}
+          dataColors={cvColors}
+        />
+      </div>
+
+      <DownloadButton />
+    </>
   );
 }
 

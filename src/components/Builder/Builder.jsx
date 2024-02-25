@@ -65,6 +65,7 @@ function Builder({
     };
   }
 
+  // Function to handale button submit for each submit button
   // Function to handle button submit for each submit button
   function handleSubmit(whereToSubmit, cvData) {
     whereToSubmit(cvData);
@@ -107,7 +108,7 @@ function Builder({
       .getElementById("responsibilities")
       .value.trim();
 
-    // Check if all necessary fields are filled (assuming companyName and jobTitle are required for simplicity)
+    // Check if all necessary fields are filled (assuming companyName and jobTitle ar for simplicity)
     if (companyName !== "" && jobTitle !== "") {
       // Create a new work experience object with the input values
       const newExperience = {
@@ -151,7 +152,7 @@ function Builder({
       .getElementById("educationEndDate")
       .value.trim();
 
-    // Check if all necessary fields are filled (assuming schoolName and degreeTitle are required for simplicity)
+    // Check if all necessary fields are filled (assuming schoolName and degreeTitle ar for simplicity)
     if (schoolName !== "" && degreeTitle !== "") {
       // Create a new education object with the input values
       const newEducation = {
@@ -180,7 +181,7 @@ function Builder({
     /*  1- BUILDER */
     <div className="Builder">
       {/* 2- PERSONAL-INFO-FORM */}
-      <form action="#" className="personal-info-form form">
+      <form className="personal-info-form form">
         <h2 className="personal-info-form__title form__title">
           Personal Information
         </h2>
@@ -256,7 +257,7 @@ function Builder({
       </form>
 
       {/* 2- CONTACT-FORM */}
-      <form action="#" className="contact-form form">
+      <form className="contact-form form">
         <h2 className="contact-form__title form__title">Contact Information</h2>
 
         {/* RESIDENTIAL ADDRESS INPUT */}
@@ -323,7 +324,10 @@ function Builder({
       </form>
 
       {/* 2- SKILLS FORM */}
-      <form action="#" className="skills-form form">
+      <form
+        className="skills-form form"
+        onSubmit={(event) => event.preventDefault()}
+      >
         <h2 className="skills-form__title form__title">Additional Skills</h2>
         <label className="skills-form__label form__label" htmlFor="skill">
           Skill:
@@ -364,7 +368,7 @@ function Builder({
       </form>
 
       {/* 2- EXPERIENCE-FORM */}
-      <form action="#" className="experience-form form">
+      <form className="experience-form form">
         <h2 className="experience-form__title form__title">Work Experience</h2>
 
         {/* EXPERIENCE COMPANY NAME INPUT */}
@@ -482,7 +486,7 @@ function Builder({
       </form>
 
       {/* 2- EDUCATION-FORM */}
-      <form action="#" className="education-form form">
+      <form className="education-form form">
         {/* TITLE */}
         <h2 className="education-form__title form__title">Education</h2>
 
@@ -584,7 +588,10 @@ function Builder({
       </form>
 
       {/* 2- LANGUAGES-FORM */}
-      <form action="#" className="languages-form form">
+      <form
+        className="languages-form form"
+        onSubmit={(event) => event.preventDefault()}
+      >
         <h2 className="languages-form__title form__title">Languages</h2>
 
         <label className="languages-form__label form__label" htmlFor="language">
@@ -623,7 +630,7 @@ function Builder({
       </form>
 
       {/* 2- CV COLOR */}
-      <form action="#" className="cv-colors-form form">
+      <form className="cv-colors-form form">
         <h2 className="cv-colors-form__title form__title">CV colors</h2>
         {/* RIGHT SIDE CV COLOR INPUT */}
         <label
