@@ -1,14 +1,14 @@
 import { useState } from "react";
 import "../../styles/AddRemoveBtn.css";
 
-function AddRemoveBtn({ text, onClick, className }) {
+function AddRemoveBtn({ text, onClick, className, noBackground }) {
   return (
     /* 1- ADD REMOVE BTN */
     <button
       className={`AddRemoveBtn ${className}`}
       type="button"
       onClick={onClick}
-      style={{ background: "none" }}
+      style={noBackground ? { background: "none" } : {}}
     >
       {text}
     </button>

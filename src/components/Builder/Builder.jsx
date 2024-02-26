@@ -355,6 +355,7 @@ function Builder({
                 text="-"
                 onClick={() => handleRemoveItem(setCvAdditionalSkills, index)}
                 className={"RemoveButton"}
+                noBackground
               />
             </Card>
           ))}
@@ -461,6 +462,7 @@ function Builder({
         <AddRemoveBtn
           text="+"
           onClick={() => handleAddWorkExperience(setCvWorkExperience)}
+          className={"experience-form__RemoveButton"}
         />
 
         <CardSection>
@@ -473,6 +475,7 @@ function Builder({
                 text="-"
                 onClick={() => handleRemoveItem(setCvWorkExperience, index)}
                 className={"RemoveButton"}
+                noBackground
               />
             </Card>
           ))}
@@ -565,6 +568,7 @@ function Builder({
         <AddRemoveBtn
           text="+"
           onClick={() => handleAddEducation(setCvEducation)}
+          className={"education-form__RemoveButton"}
         />
 
         <CardSection>
@@ -577,6 +581,7 @@ function Builder({
                 text="-"
                 onClick={() => handleRemoveItem(setCvEducation, index)}
                 className={"RemoveButton"}
+                noBackground
               />
             </Card>
           ))}
@@ -619,6 +624,7 @@ function Builder({
                 text="-"
                 onClick={() => handleRemoveItem(setCvLanguages, index)}
                 className={"RemoveButton"}
+                noBackground
               />
             </Card>
           ))}

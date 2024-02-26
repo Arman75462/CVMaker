@@ -9,9 +9,9 @@ SPECIFIC LAYOUT AND STYLES=
 .Loader {
   height: 2em;
   width: 2em;
-  border: 5px solid black; /* Border color is the loading circle color */
+  border: 3px solid black; /* Border color is the loading circle color */
   border-radius: 50%;
-  border-top: 5px solid transparent; /* Make top transparent to create the loading effect */
+  border-top: 3px solid transparent; /* Make top transparent to create the loading effect */
   animation: rotate 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; /* 1s duration, linear timing, infinite iteration */
 }
 

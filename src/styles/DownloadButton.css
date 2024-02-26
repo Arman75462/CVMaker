@@ -11,7 +11,6 @@ SPECIFIC LAYOUT AND STYLES=
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--download-button-background-color);
-  padding: 2em;
   border-radius: 50%;
   position: fixed;
   bottom: 1.5em;

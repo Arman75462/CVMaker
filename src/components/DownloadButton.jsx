@@ -82,7 +82,9 @@ function DownloadButton() {
       onClick={handleDownloadPdf}
       style={{
         padding: isLoading ? "1em" : "2em",
-        backgroundImage: isLoading ? "" : "url(/src/assets/download-icon.svg)",
+        backgroundImage: isLoading
+          ? null
+          : "url(/src/assets/download-icon.svg)",
       }}
     >
       {isLoading ? <Loader /> : null}
