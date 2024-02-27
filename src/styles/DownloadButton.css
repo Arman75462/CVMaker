@@ -7,9 +7,7 @@ SPECIFIC LAYOUT AND STYLES=
 ==============================*/
 /* 1- DOWNLOAD BUTTON */
 .DownloadButton {
-  background-size: 40px 40px;
-  background-repeat: no-repeat;
-  background-position: center;
+  padding: 1.5em;
   background-color: var(--download-button-background-color);
   border-radius: 50%;
   position: fixed;
@@ -17,6 +15,10 @@ SPECIFIC LAYOUT AND STYLES=
   right: 1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 3px 10px rgba(0, 0, 0, 0.33);
   transition: box-shadow 0.3s ease, scale 0.3s ease;
+}
+
+.lol {
+  transform: scale(1.7);
 }
 
 .DownloadButton:hover {

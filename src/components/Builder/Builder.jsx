@@ -65,7 +65,6 @@ function Builder({
     };
   }
 
-  // Function to handale button submit for each submit button
   // Function to handle button submit for each submit button
   function handleSubmit(whereToSubmit, cvData) {
     whereToSubmit(cvData);
@@ -138,6 +137,7 @@ function Builder({
     }
   }
 
+  // Function to handle adding education info to its state
   function handleAddEducation(setCvEducation) {
     // Gather input values from the form fields
     const schoolName = document.getElementById("schoolName").value.trim();

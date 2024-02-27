@@ -98,7 +98,7 @@ button {
 GENERAL LAYOUT AND STYLES=====
 ==============================*/
 :root {
-  --submit-btn-background-color: rgb(116, 255, 255);
+  --submit-btn-background-color: rgb(154, 255, 255);
 
   /* CV COLORS */
   --cv-section-background-color: #eeeeee;
@@ -117,6 +117,6 @@ GENERAL LAYOUT AND STYLES=====
   --card-text-color: white;
 
   /* DOWNLOAD BUTTON COLORS */
-  --download-button-background-color: rgb(65, 255, 255);
+  --download-button-background-color: rgb(154, 255, 255);
   --download-button-background-color-active: rgb(155, 255, 155);
 }

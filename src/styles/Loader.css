@@ -7,8 +7,8 @@ SPECIFIC LAYOUT AND STYLES=
 ==============================*/
 /* 1- LOADER */
 .Loader {
-  height: 2em;
-  width: 2em;
+  height: 1.5em;
+  width: 1.5em;
   border: 3px solid black; /* Border color is the loading circle color */
   border-radius: 50%;
   border-top: 3px solid transparent; /* Make top transparent to create the loading effect */

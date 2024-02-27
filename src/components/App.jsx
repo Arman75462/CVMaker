@@ -66,8 +66,8 @@ function App() {
   ]);
 
   const [cvColors, setCvColors] = useState({
-    rightSideCvColor: "lightgray",
-    leftSideCvColor: "",
+    rightSideCvColor: "white",
+    leftSideCvColor: "rgb(198, 247, 198)",
   });
 
   // Higher order function to handle cv-data submit
